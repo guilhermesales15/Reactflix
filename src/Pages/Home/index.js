@@ -1,6 +1,8 @@
 import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import {useEffect, useState} from 'react';
 import api from '../../Services/api';
+import {Link} from 'react-router-dom';
+import './home.css';
 
 //url da API:movie/now_playing?api_key=2db5c2a96808bbf80302c966058dcf00&language=pt-BR
 
@@ -18,13 +20,29 @@ function Home(){
                     pages: 1
                 }
             });
-            console.log(response.data.results);
+            // console.log(response.data.results.slice(0,10));
+
+            setFilmes(response.data.results.slice(0,10));
         }
+        loadFilmes();
 
     }, [])
     return (
-        <div>
-            <h1>Bem vindo a Home</h1>
+        <div className='container'>
+            <div className='lista'>
+                {filmes.map((filme) =>{
+                    return(
+                        <article key={filme.id}>
+                            <strong>{filme.title}</strong>
+                            <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title} />
+                            <Link to={`/filme/${filme.id}`}>Acessar</Link>
+
+                        </article>
+                    )
+                })}
+
+            </div>
+           
 
         </div>
 

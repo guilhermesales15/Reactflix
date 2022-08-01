@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom';
 function Header(){
     return(
         <header>
-            <Link className='logo' to="/">Sexo filmes</Link>
+            <Link className='logo' to="/">Reactflix</Link>
             <Link className='favorito' to="/Favoritos">Meus Filmes</Link>
         </header>
     )

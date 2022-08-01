@@ -1,4 +1,4 @@
-//Base  da API:https://api.themoviedb.org/3
+//Base  da API:https://api.themoviedb.org/3/
 //url da API:movie/now_playing?api_key=2db5c2a96808bbf80302c966058dcf00&language=pt-BR
 
 import axios from  'axios';
