@@ -1,0 +1,24 @@
+.erro{
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    
+}
+
+.erro h1{
+    font-size: 100px;
+}
+
+
+.erro a{
+    text-decoration: none;
+    color: #fff;
+    background-color: #116feb;
+    margin-top: 14px;
+    padding: 10px;
+    border-radius: 4px;
+}
