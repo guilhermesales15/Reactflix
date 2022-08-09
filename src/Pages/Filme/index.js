@@ -2,6 +2,7 @@ import {useEffect,useState} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
 import api from '../../Services/api';
 import './style.css';
+import {toast } from 'react-toastify';
 
 
 
@@ -36,6 +37,22 @@ function Filme(){
 
         }
     }, [])
+    function salvarFilme(){
+        const minhaLista = localStorage.getItem("@filme");
+
+
+        let filmeSalvos = JSON.parse(minhaLista) || [];
+
+        const hasFilme = filmeSalvos.some((filmeSalvos) => filmeSalvos.id ===filme.id);
+
+        if(hasFilme){
+            toast.warn("Esse filme já está na sua lista.")
+            return
+        }
+        filmeSalvos.push(filme);
+        localStorage.setItem("@filme", JSON.stringify(filmeSalvos));
+        toast.success("Filme Salvo.")
+    };
 
     if(loading){
         return(
@@ -43,8 +60,8 @@ function Filme(){
                 <h1>Carregando...</h1>
             </div>
         )
-    }
-
+    };
+    
 
     return(
         <div>
@@ -58,9 +75,9 @@ function Filme(){
 
 
             <div className='button'>
-                <button>Salvar</button>
+                <button onClick={salvarFilme}>Salvar</button>
                 <button>
-                    <a target="_blank" rel='external' href={`https://youtube.com/results?search_query=${filme.title} trailer`}>Trailer</a>
+                    <a target="blank" rel='external' href={`https://youtube.com/results?search_query=${filme.title} trailer`}>Trailer</a>
                 </button>
 
 

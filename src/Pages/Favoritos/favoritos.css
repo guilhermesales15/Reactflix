@@ -1,0 +1,51 @@
+.minha-lista{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.minha-lista h1{
+    margin-bottom: 14px;
+}
+
+.minha-lista span{
+    font: size 18px;
+}
+
+.minha-lista ul{
+    width: 720px;
+    list-style: none;
+}
+
+.minha-lista ul li{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.minha-lista div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.minha-lista div a{
+    text-decoration: none;
+    color: #116feb;
+    margin-right: 14px;
+}
+
+.minha-lista div button{
+    color: #fff;;
+    padding: 4px;
+    background-color: #116feb;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.minha-lista div button:hover{
+    background-color: red;
+}
