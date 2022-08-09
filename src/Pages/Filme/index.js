@@ -1,12 +1,14 @@
 import {useEffect,useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import api from '../../Services/api';
+import './style.css';
 
 
 
 function Filme(){
 
     const {id} =useParams();
+    const navigate = useNavigate();
     const [filme,setFilme] = useState({});
     const [loading, setLoading] = useState(true);
 
@@ -21,6 +23,10 @@ function Filme(){
             .then((response)=>{
                 setFilme(response.data);
                 setLoading(false);
+            })
+            .catch(()=>{
+                navigate("/",{ replace:true});
+               return;
             })
         }
 
@@ -49,6 +55,17 @@ function Filme(){
             <h3>Sinopse</h3>
             <span>{filme.overview}</span>
             <strong>Avaliação: {filme.vote_average}/10</strong>
+
+
+            <div className='button'>
+                <button>Salvar</button>
+                <button>
+                    <a target="_blank" rel='external' href={`https://youtube.com/results?search_query=${filme.title} trailer`}>Trailer</a>
+                </button>
+
+
+            </div>
+
             </div>
         </div>
     )
